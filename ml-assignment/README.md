@@ -2,10 +2,48 @@
 
 This directory contains the core assignment files for the Trigram Language Model.
 
-## How to Run 
+## How to Run
 
-    # Instructions on how to run. (filled by you)
+### Prerequisites
+
+Install the required dependencies:
+```bash
+pip install pytest
+```
+
+### Training and Generating Text
+
+1. **Using the example corpus:**
+   ```bash
+   cd ml-assignment
+   python src/generate.py
+   ```
+
+2. **Using your own text:**
+   ```python
+   from src.ngram_model import TrigramModel
+   
+   model = TrigramModel()
+   with open("your_text_file.txt", "r") as f:
+       text = f.read()
+   model.fit(text)
+   generated_text = model.generate(max_length=100)
+   print(generated_text)
+   ```
+
+### Running Tests
+
+From the root directory:
+```bash
+python -m pytest ml-assignment/tests/test_ngram.py -v
+```
+
+Or from the `ml-assignment` directory:
+```bash
+cd ml-assignment
+python -m pytest tests/test_ngram.py -v
+```
 
 ## Design Choices
 
-Please document your design choices in the `evaluation.md` file. This should be a 1-page summary of the decisions you made and why you made them.
+Please see `evaluation.md` for a detailed summary of design decisions and implementation choices.
